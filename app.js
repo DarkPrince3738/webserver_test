@@ -1,20 +1,30 @@
+
 const express = require('express')
 
 const app = express()
 const port = 3001
 
+const {database} = require("./database");
+
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
+
 app.get('/test', (req, res) => {
     res.send('Hello World!')
 })
 
 app.post('/api/login', (req, res)=>{
     console.log(req.body)
-    if(req.body.username === 'alex' && req.body.password === 'pass'){
-        res.send("Authenticated!")
+
+    for(let i = 0; i < database.users.length; i++){
+        const userToCheck = database.users[i]
+
+        if(userToCheck.username === req.body.username && userToCheck.password === req.body.password){
+            res.send("Authenticated!")
+            break;
+        }
     }
-    else{res.send("Wrong information")}
+    res.send("Unauthorized(((")
 })
 
 app.listen(port, () => {
