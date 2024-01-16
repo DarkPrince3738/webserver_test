@@ -15,16 +15,22 @@ app.get('/test', (req, res) => {
 
 app.post('/api/login', (req, res)=>{
     console.log(req.body)
-
+    let hasAuthenticatedUser = false
     for(let i = 0; i < database.users.length; i++){
         const userToCheck = database.users[i]
 
         if(userToCheck.username === req.body.username && userToCheck.password === req.body.password){
-            res.send("Authenticated!")
+            //res.send("Authenticated!")
+            const token = `${req.body.username}_${Date.now()}`
+            res.send(token)
+            hasAuthenticatedUser = true
             break;
         }
     }
-    res.send("Unauthorized(")
+    if(!hasAuthenticatedUser){
+        res.sendStatus(401)
+    }
+
 })
 
 app.listen(port, () => {
