@@ -9,6 +9,13 @@ const {database} = require("./database");
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 
+app.get('/home', (req, res) => {
+    res.sendFile(__dirname + "/public/landing-page.html")
+})
+app.get('/', (req, res) => {
+    res.redirect(300, '/home')})
+
+
 app.get('/test', (req, res) => {
     res.send('Hello World!')
 })
@@ -21,8 +28,8 @@ app.post('/api/login', (req, res)=>{
 
         if(userToCheck.username === req.body.username && userToCheck.password === req.body.password){
             //res.send("Authenticated!")
-            const token = `${req.body.username}_${Date.now()}`
-            res.send(token)
+            const sessionToken = `${req.body.username}_${Date.now()}`
+            res.send(sessionToken)
             hasAuthenticatedUser = true
             break;
         }
