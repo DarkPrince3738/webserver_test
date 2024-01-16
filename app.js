@@ -24,7 +24,7 @@ app.post('/api/login', (req, res)=>{
             break;
         }
     }
-    res.send("Unauthorized(((")
+    res.send("Unauthorized(")
 })
 
 app.listen(port, () => {
