@@ -39,7 +39,7 @@ input[type=text], input[type=password] {
 }
 
 .form {
-    padding: 25px;
+    padding: 25px 150px 25px 25px;
     background-color: lightgrey;
 }
 
@@ -49,8 +49,7 @@ button_container{
     flex-direction: row;
 }
 
-
-button {
+#login-button {
     display: inline-block;
     border-radius: 4px;
     background-color: green;
