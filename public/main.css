@@ -38,7 +38,7 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-.form {
+.login-form {
     padding: 25px 150px 25px 25px;
     background-color: lightgrey;
 }

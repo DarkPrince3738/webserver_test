@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="main.css">
+    <script src="login-page-scripts/authentication.js" defer></script>
+    <script src="login-page-scripts/password-toggle.js" defer></script>
+
     <title>Webserver</title>
 </head>
 <body>
@@ -13,12 +16,13 @@
 <main>
 
     <h1>Hi, login here please</h1>
-    <form action="/api/login" method="post" class="form">
+    <form class="login-form">
         <label>Username</label>
-        <input type="text" name="username" placeholder="Enter Username" required>
+        <input type="text" name="username" id="username-input" placeholder="Enter Username" required>
         <label>Password</label>
         <input type="password" name="password" id="password-field" placeholder="Enter Password" required>
-        <button type="submit" id="login-button"><span>Login</span></button>
+        <p id="wrong-info" style="display: none">Wrong info</p>
+        <button type="submit" id="login-button" onclick="authenticateUser(event)"><span>Login</span></button>
         <button type="button" id="password-toggle" onclick="togglePasswordField()">Show Password</button>
     </form>
 
@@ -36,6 +40,5 @@
 <footer>
     <p>&copy; 2024 Simple Website. All rights reserved.</p>
 </footer>
-<script src="login-page-scriptts/password-toggle.js" defer></script>
 </body>
 </html>
