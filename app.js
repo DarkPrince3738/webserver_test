@@ -21,7 +21,7 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.redirect(300, '/home')})
+    res.redirect( '/home')})
 
 
 app.get('/test', (req, res) => {
