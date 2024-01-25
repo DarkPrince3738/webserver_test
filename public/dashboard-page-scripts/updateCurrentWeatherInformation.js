@@ -1,7 +1,7 @@
 const apiToken = "74771e227fd40f4eacc03c7dcd09e8ec"
 async function updateCurrentWeatherInformation() {
     let city = "Berlin"
-    let url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiToken}`
+    let url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiToken}`
     const coordinate = await fetch(url)
         .then(data => data.json())
     let lat = coordinate[0].lat
