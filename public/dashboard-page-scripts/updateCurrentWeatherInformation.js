@@ -17,22 +17,6 @@ async function updateCurrentWeatherInformation() {
     weatherTemperature.textContent = resultWeather.main.temp
 
     let weatherType = resultWeather.weather[0].main
-    switch(weatherType){
-        case "Clear":
-            document.getElementById("weather-type").src = "/weather-pictures/day.svg";
-            break;
-        case "Clouds":
-            document.getElementById("weather-type").src = "/weather-pictures/cloudy.svg";
-            break;
-        case "Rain":
-            document.getElementById("weather-type").src = "/weather-pictures/rainy.svg";
-            break;
-        case "Snow":
-            document.getElementById("weather-type").src = "/weather-pictures/snowy.svg";
-            break;
-        case "Thunderstorm":
-            document.getElementById("weather-type").src = "/weather-pictures/thunder.svg";
-            break;
-    }
+    weatherType = document.getElementById("weather-type").src = `/weather-pictures/${weatherType}.svg`
 }
 
