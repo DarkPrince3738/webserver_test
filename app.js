@@ -50,7 +50,7 @@ app.post('/api/login', (req, res)=>{
 app.get('/api/:username/city', (req, res) => {
         const user = database.users.find(user => req.params.username === user.username)
         if (user) {
-            res.send(user.city)
+            res.send(JSON.stringify(user.city))
         }
         else{
             res.sendStatus(404)
@@ -61,7 +61,7 @@ app.get('/api/:username/city', (req, res) => {
 app.get('/api/:username/profile-picture-path', (req, res) => {
         const user = database.users.find(user => req.params.username === user.username)
         if (user) {
-            res.send( user.profilePicturePath)
+            res.send(JSON.stringify(user.profilePicturePath))
         }
         else{
             res.sendStatus(404)
