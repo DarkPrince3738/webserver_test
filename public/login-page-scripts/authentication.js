@@ -4,6 +4,8 @@ async function authenticateUser(event) {
     const username = document.querySelector("#username-input").value
     const password = document.querySelector("#password-field").value
 
+    sessionStorage.setItem("givenName", username)
+
     const response = await fetch("/api/login", {
         method: "POST",
         headers: {
