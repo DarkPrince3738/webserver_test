@@ -1,5 +1,7 @@
 const apiToken = "74771e227fd40f4eacc03c7dcd09e8ec"
 async function updateCurrentWeatherInformation() {
+    const apiToken = "74771e227fd40f4eacc03c7dcd09e8ec"
+
     let givenCity = `/api/${sessionStorage.getItem("givenName")}/city`
     let city = await fetch(givenCity)
         .then(res => res.json())
@@ -14,9 +16,16 @@ async function updateCurrentWeatherInformation() {
     currentCity.textContent = city
     const weatherTemperature = document.getElementById("current-city-temperature")
 
+    const currentCityForecast = document.getElementById("current-city-forecast")
+    currentCityForecast.textContent = city
+
     const resultWeather = await fetch(currentWeather)
         .then(data => data.json())
     weatherTemperature.textContent = resultWeather.main.temp
+
+    const currCountry = document.getElementById("current-country")
+    currCountry.textContent = resultWeather.sys.country
+
 
     let weatherType = resultWeather.weather[0].main
     weatherType = document.getElementById("weather-type").src = `/weather-pictures/${weatherType}.svg`

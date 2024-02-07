@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/dashboard-page-scripts/forecast.css">
     <script src="login-page-scripts/authentication.js" defer></script>
     <script src="get-username.js" onclick="getUsername()" defer></script>
     <script src="/dashboard-page-scripts/updateCurrentWeatherInformation.js" defer></script>
+    <script src="/dashboard-page-scripts/updateForecast.js" defer></script>
+    <script src="/dashboard-page-scripts/givenCityCoordinates.js" defer></script>
     <script src="/login-page-scripts/log-out.js" defer></script>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,9 +14,22 @@
 <body>
 <h1 id="dashboards-username"><span id="get-name"></span>'s Dashboard</h1>
 <img id="user-image" src="">
-<p>Currently, <span id="current-city"></span> is<img id="weather-type" src=""> and has a temperature of <span id="current-city-temperature"></span>°C</p>
-    <button type="submit" id="refresh-weather-button" onclick="updateCurrentWeatherInformation()"><span>Get Current Weather</span></button>
-    <p></p>
-    <button type="submit" id="logout-button" onclick="logOutAuthenticateUser()"><span>Log Out</span></button>
+<p></p>
+<input type="search" id="city-weather-search" placeholder="Enter your city" name="q"/>
+<p>Current temperature in <span id="current-city"></span>, <span id="current-country"></span>: <span id="current-city-temperature"></span>°C</p>
+<image id="weather-type" src=""></image>
+<p></p>
+<button type="submit" id="given-city" onclick="givenCityCoord()"><span>Get Temperature</span></button>
+<button type="submit" id="refresh-weather-button" onclick="updateCurrentWeatherInformation(); updateForecast()"><span>Get Current Weather</span></button>
+<p></p>
+<p>Weather forecast for <span id="current-city-forecast"></span></p>
+<div class="column" id="forecast-container">
+    <div class="weather-container" id="first-day"></div>
+    <div class="weather-container" id="second-day"></div>
+    <div class="weather-container" id="third-day"></div>
+    <div class="weather-container" id="fourth-day"></div>
+    <div class="weather-container" id="fifth-day"></div>
+</div>
+<button type="submit" id="logout-button" onclick="logOutAuthenticateUser()"><span>Log Out</span></button>
 </body>
 </html>

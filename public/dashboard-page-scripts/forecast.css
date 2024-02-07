@@ -1,0 +1,17 @@
+#forecast-container {
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.weather-container {
+    flex: 0 0 auto;
+    width: 20%;
+    box-sizing: border-box;
+    margin-right: 0;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
