@@ -1,4 +1,5 @@
 async function updateForecast() {
+    document.getElementById("forecast-container").style.display = "flex"
     const apiToken = "74771e227fd40f4eacc03c7dcd09e8ec"
     let givenCity = `/api/${sessionStorage.getItem("givenName")}/city`
     let city = await fetch(givenCity)
